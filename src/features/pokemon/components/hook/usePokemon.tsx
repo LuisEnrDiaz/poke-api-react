@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PokeRepository } from '../../../../infrastructure/services/respository/pokeRepository/pokeRepository';
+import { PokeRepository } from '../../../../infrastructure/services/pokeRepository';
 import * as action from '../../pokeReducer/actionCreator';
 import { rootState } from '../../../../infrastructure/store/store';
 
@@ -11,7 +11,7 @@ export const usePokemon = () => {
 
     const handleLoad = useCallback(() => {
         pokemonRepository
-            .getAll()
+            .getAllPokemons()
             .then((pokemons) => dispatcher(action.loadActionCreator(pokemons)));
     }, [dispatcher, pokemonRepository]);
 

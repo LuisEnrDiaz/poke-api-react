@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import * as action from './actionCreator';
-import { InitialI } from '../../../infrastructure/types/pokemonType/pokemonType';
+import { InitialI } from '../../../infrastructure/types/pokemonType';
 
 const initialState: InitialI = {
     count: 0,
