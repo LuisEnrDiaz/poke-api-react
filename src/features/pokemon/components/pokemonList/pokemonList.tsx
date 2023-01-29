@@ -32,7 +32,7 @@ export function PokemonList() {
                 </div>
             </div>
 
-            <section className={style.main_section}>
+            <section className={style.main_section_info}>
                 <h2>{title}</h2>
 
                 {pokemons.previous === null ? (
@@ -46,6 +46,7 @@ export function PokemonList() {
                         Atras
                     </button>
                 )}
+
                 {pokemons.next === null ? (
                     <></>
                 ) : (
@@ -57,7 +58,9 @@ export function PokemonList() {
                         Siguiente
                     </button>
                 )}
+            </section>
 
+            <section className={style.main_section_pokemon}>
                 <ul className={style.main_section_ul}>
                     {pokemons.results.map((pokemon: PokemonsI) => (
                         <PokemonItem url={pokemon.url}></PokemonItem>
