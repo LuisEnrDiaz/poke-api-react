@@ -1,15 +1,15 @@
 import { createReducer } from '@reduxjs/toolkit';
 import * as action from './actionCreator';
-import { InitialI } from '../../../infrastructure/types/pokemonType';
+import { InitialDatesI } from '../../../infrastructure/types/pokemonType';
 
-const initialState: InitialI = {
+const initialState: InitialDatesI = {
     count: 0,
     next: '',
     previous: '',
     results: [],
 };
 
-export const pokemonReducer = createReducer(initialState, (builder) => {
+export const pokeReduce = createReducer(initialState, (builder) => {
     builder.addCase(
         action.loadActionCreator,
         (state, action) => action.payload

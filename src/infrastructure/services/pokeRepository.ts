@@ -1,4 +1,4 @@
-import { InitialI } from '../types/pokemonType';
+import { InitialDatesI, PokemonI } from '../types/pokemonType';
 
 export class PokeRepository {
     url: string;
@@ -15,12 +15,21 @@ export class PokeRepository {
         return error;
     }
 
-    getAllPokemons(): Promise<InitialI> {
+    getInitialDates(): Promise<InitialDatesI> {
         return fetch(this.url).then((response) => {
             if (!response.ok) {
                 throw this.createError(response);
             }
 
+            return response.json();
+        });
+    }
+
+    getPokemon(name: string): Promise<PokemonI> {
+        return fetch(`${this.url}/${name}`).then((response) => {
+            if (!response.ok) {
+                throw this.createError(response);
+            }
             return response.json();
         });
     }

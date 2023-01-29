@@ -1,12 +1,13 @@
-import PokePage from '../../../features/pokemon/pokePage/pokePage';
+import style from './header.module.css';
 
 export function Header() {
-    const title = 'Pokemon';
-
     return (
-        <>
-            <h1>{title}</h1>
-            <PokePage></PokePage>
-        </>
+        <header className={style.header}>
+            <img
+                className={style.header_img}
+                src="./assets/logo.png"
+                alt='Logotipo de la api de pokemon "PokeApi"'
+            />
+        </header>
     );
 }

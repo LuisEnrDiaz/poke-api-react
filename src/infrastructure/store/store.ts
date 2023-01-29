@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { pokemonReducer } from '../../features/pokemon/pokeReducer/pokeReducer';
+import { pokeReduce } from '../../features/pokemon/pokeReducer/pokeReducer';
 
 export const appStore = configureStore({
     reducer: {
-        pokemons: pokemonReducer,
+        pokemons: pokeReduce,
     },
 });
 

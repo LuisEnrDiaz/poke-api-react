@@ -11,7 +11,7 @@ export const usePokemon = () => {
 
     const handleLoad = useCallback(() => {
         pokemonRepository
-            .getAllPokemons()
+            .getInitialDates()
             .then((pokemons) => dispatcher(action.loadActionCreator(pokemons)));
     }, [dispatcher, pokemonRepository]);
 
