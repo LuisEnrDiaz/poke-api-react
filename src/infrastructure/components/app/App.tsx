@@ -1,12 +1,13 @@
 import { PokemonList } from '../../../features/pokemon/components/pokemonList/pokemonList';
-import { Header } from '../header/header';
+import { Layout } from '../layout/layout';
 import './App.css';
 
 function App() {
     return (
         <>
-            <Header></Header>
-            <PokemonList></PokemonList>
+            <Layout>
+                <PokemonList></PokemonList>
+            </Layout>
         </>
     );
 }

@@ -5,7 +5,9 @@ describe('Given Header', () => {
     describe('When we render the component', () => {
         test('Then it should display "Pokemon"', () => {
             render(<Header />);
-            const result = screen.getByText(/Pokemon/i);
+            const result = screen.getByAltText(
+                /Logotipo de la api de pokemon "PokeApi"/i
+            );
             expect(result).toBeInTheDocument();
         });
     });

@@ -17,9 +17,10 @@ describe('Given PokemonItem', () => {
                 ok: true,
                 json: jest.fn().mockResolvedValue({}),
             });
+
             const result = await service.getPokemon('');
 
-            const element = screen.getByRole('img');
+            const element = screen.getByAltText('pokemon');
             expect(element).toBeInTheDocument();
             expect(result).toEqual({});
         });

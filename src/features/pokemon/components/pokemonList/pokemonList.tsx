@@ -39,6 +39,7 @@ export function PokemonList() {
                     <></>
                 ) : (
                     <button
+                        id="previous"
                         className={style.section_button}
                         onClick={handleClick}
                         name={pokemons.previous}
@@ -51,6 +52,7 @@ export function PokemonList() {
                     <></>
                 ) : (
                     <button
+                        id="next"
                         className={style.section_button}
                         onClick={handleClick}
                         name={pokemons.next}

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { appStore } from '../../../../infrastructure/store/store';
 import { PokemonList } from './pokemonList';
@@ -12,9 +12,20 @@ describe('Given PokemonList component', () => {
                 </Provider>
             );
 
-            const element = screen.getByText(/Pokemon list/i);
+            const title = screen.getByText(/Lista de Pokemons/i);
+            const buttonPrevious = screen.getByRole('button', {
+                name: 'Atras',
+            });
+            const buttonNext = screen.getByRole('button', {
+                name: 'Siguiente',
+            });
 
-            expect(element).toBeInTheDocument();
+            const previous = fireEvent.click(buttonPrevious);
+            const next = fireEvent.click(buttonNext);
+
+            expect(title).toBeInTheDocument();
+            expect(previous).toBe(false);
+            expect(next).toBe(false);
         });
     });
 });

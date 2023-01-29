@@ -1,9 +1,14 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { Provider } from 'react-redux';
+import { appStore } from '../../store/store';
 
 test('renders learn react link', () => {
-    render(<App />);
-    const result = screen.getByText(/Pokemon list/i);
+    render(
+        <Provider store={appStore}>
+            <App></App>
+        </Provider>
+    );
+    const result = screen.getByText(/Lista de pokemons/i);
     expect(result).toBeInTheDocument();
 });
