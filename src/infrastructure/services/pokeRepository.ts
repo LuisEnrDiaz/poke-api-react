@@ -4,7 +4,7 @@ export class PokeRepository {
     url: string;
 
     constructor() {
-        this.url = 'https://pokeapi.co/api/v2/pokemon';
+        this.url = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
     }
 
     createError(response: Response) {
@@ -15,8 +15,8 @@ export class PokeRepository {
         return error;
     }
 
-    getInitialDates(): Promise<InitialDatesI> {
-        return fetch(this.url).then((response) => {
+    getInitialDates(url: string): Promise<InitialDatesI> {
+        return fetch(url).then((response) => {
             if (!response.ok) {
                 throw this.createError(response);
             }
@@ -25,8 +25,17 @@ export class PokeRepository {
         });
     }
 
-    getPokemon(name: string): Promise<PokemonI> {
-        return fetch(`${this.url}/${name}`).then((response) => {
+    // getPage(url: string): Promise<PokemonI> {
+    //     return fetch(url).then((response) => {
+    //         if (!response.ok) {
+    //             throw this.createError(response);
+    //         }
+    //         return response.json();
+    //     });
+    // }
+
+    getPokemon(url: string): Promise<PokemonI> {
+        return fetch(url).then((response) => {
             if (!response.ok) {
                 throw this.createError(response);
             }

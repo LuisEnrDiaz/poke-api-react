@@ -3,7 +3,7 @@ import { PokeRepository } from '../../../../infrastructure/services/pokeReposito
 import { PokemonI } from '../../../../infrastructure/types/pokemonType';
 import style from './pokemonItem.module.css';
 
-export function PokemonItem({ name }: { name: string }) {
+export function PokemonItem({ url }: { url: string }) {
     const initialState: PokemonI = {
         id: 0,
         name: '',
@@ -26,12 +26,12 @@ export function PokemonItem({ name }: { name: string }) {
 
     const fetchPokemon = useCallback(() => {
         const get = async () => {
-            const promise = await pokeRepo.getPokemon(name);
+            const promise = await pokeRepo.getPokemon(url);
 
             setPokemon(promise);
         };
         return get();
-    }, [pokeRepo, name]);
+    }, [pokeRepo, url]);
 
     useEffect(() => {
         fetchPokemon();

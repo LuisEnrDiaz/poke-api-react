@@ -9,11 +9,16 @@ export const usePokemon = () => {
     const dispatcher = useDispatch();
     const pokemonRepository = useMemo(() => new PokeRepository(), []);
 
-    const handleLoad = useCallback(() => {
-        pokemonRepository
-            .getInitialDates()
-            .then((pokemons) => dispatcher(action.loadActionCreator(pokemons)));
-    }, [dispatcher, pokemonRepository]);
+    const handleLoad = useCallback(
+        (url: string) => {
+            pokemonRepository
+                .getInitialDates(url)
+                .then((pokemons) =>
+                    dispatcher(action.loadActionCreator(pokemons))
+                );
+        },
+        [dispatcher, pokemonRepository]
+    );
 
     return {
         pokemons,

@@ -9,7 +9,7 @@ describe('Given PokemonItem', () => {
         test('Then it should display', async () => {
             render(
                 <Provider store={appStore}>
-                    <PokemonItem name=""></PokemonItem>
+                    <PokemonItem url=""></PokemonItem>
                 </Provider>
             );
             const service = new PokeRepository();

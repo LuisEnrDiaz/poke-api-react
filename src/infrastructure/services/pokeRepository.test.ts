@@ -28,7 +28,7 @@ describe('Given PokeRepository', () => {
                 ok: true,
                 json: jest.fn().mockResolvedValue({}),
             });
-            const result = await services.getInitialDates();
+            const result = await services.getInitialDates('');
 
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
@@ -37,7 +37,7 @@ describe('Given PokeRepository', () => {
         test('Then should return error', async () => {
             global.fetch = jest.fn().mockResolvedValue(errorResponse);
             await expect(
-                async () => await services.getInitialDates()
+                async () => await services.getInitialDates('')
             ).rejects.toThrow();
         });
     });
