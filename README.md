@@ -10,7 +10,7 @@
     <img  width=800 align=center src='./public/assets/example.png' alt='PokeApi Logotipo' />
 <p/>
 
-## 🖥️ Desplegado
+## 🖥️ Despliegue
 
 Porque no entras y encuentras tus pokemons favoritos y descubres todas sus habilidades en : [Netlify solo tienes que dar clic aqui](https://pokemon-poke-api.netlify.app/)
 
