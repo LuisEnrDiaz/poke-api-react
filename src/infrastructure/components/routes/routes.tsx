@@ -1,4 +1,4 @@
-import { Router, Navigate, Routes } from 'react-router-dom';
+import { Navigate, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import PokemonDetails from '../../../features/pokemon/components/pokemonDetails/pokemonDetails';
 import { PokemonList } from '../../../features/pokemon/components/pokemonList/pokemonList';
