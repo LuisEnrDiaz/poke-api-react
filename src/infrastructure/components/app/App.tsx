@@ -1,12 +1,12 @@
-import { PokemonList } from '../../../features/pokemon/components/pokemonList/pokemonList';
 import { Layout } from '../layout/layout';
+import { AppRoutes } from '../routes/routes';
 import './App.css';
 
 function App() {
     return (
         <>
             <Layout>
-                <PokemonList></PokemonList>
+                <AppRoutes></AppRoutes>
             </Layout>
         </>
     );

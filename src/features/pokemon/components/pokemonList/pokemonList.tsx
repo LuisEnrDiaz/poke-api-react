@@ -1,5 +1,6 @@
 import { useEffect, SyntheticEvent, useState } from 'react';
 import { PokemonsI } from '../../../../infrastructure/types/pokemonType';
+import { Decoration } from '../decoration/decoration';
 import { usePokemon } from '../hook/usePokemon';
 import { PokemonItem } from '../pokemonItem/pokemonItem';
 import style from './pokemonList.module.css';
@@ -14,7 +15,6 @@ export function PokemonList() {
 
     const handleClick = (event: SyntheticEvent) => {
         event.preventDefault();
-
         const element = event.target as HTMLButtonElement;
         setPage(element.name);
         handleLoad(page);
@@ -26,11 +26,7 @@ export function PokemonList() {
 
     return (
         <main>
-            <div className={style.main_decoration}>
-                <div className={style.main_decoration_div}>
-                    <div className={style.main_decoration_div_div}></div>
-                </div>
-            </div>
+            <Decoration />
 
             <section className={style.main_section_info}>
                 <h2>{title}</h2>
@@ -65,7 +61,10 @@ export function PokemonList() {
             <section className={style.main_section_pokemon}>
                 <ul className={style.main_section_ul}>
                     {pokemons.results.map((pokemon: PokemonsI) => (
-                        <PokemonItem url={pokemon.url}></PokemonItem>
+                        <PokemonItem
+                            key={pokemon.name}
+                            url={pokemon.url}
+                        ></PokemonItem>
                     ))}
                 </ul>
             </section>
